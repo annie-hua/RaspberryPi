@@ -1,13 +1,13 @@
 import RPi.GPIO as GPIO
 
-redButton = 19 
+redButton = 22 
 yellowButton = 18 
-blueButton = 17
+blueButton = 16
 
 
 def setup():
     GPIO.setmode(GPIO.BOARD) # use PHYSICAL GPIO Numbering
-    # GPIO.setup(ledPin, GPIO.OUT) # set ledPin to OUTPUT mode
+    # GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
     GPIO.setup(redButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
     GPIO.setup(yellowButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
     GPIO.setup(blueButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
