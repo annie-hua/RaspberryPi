@@ -1,3 +1,5 @@
+import RPi.GPIO as GPIO
+
 redButton = 19 
 yellowButton = 18 
 blueButton = 17
