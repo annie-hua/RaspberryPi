@@ -27,6 +27,8 @@ def loop():
             print ('Yellow Button: pressed >>>') # print information on terminal
         if GPIO.input(blueButton)==GPIO.LOW: # if button is pressed
             print ('Blue Button: pressed >>>') # print information on terminal
+            mixer.music.load('./sounds/English/blue.mp3')
+            mixer.music.play()
     # else : # if button is released
     #     print ('button released <<<')
 def hello():
