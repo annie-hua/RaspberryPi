@@ -15,7 +15,12 @@ def setup():
 
 def loop():
     while True:
+        print('looping')
         if GPIO.input(redButton)==GPIO.LOW: # if button is pressed
+            print ('button pressed >>>') # print information on terminal
+        if GPIO.input(yellowButton)==GPIO.LOW: # if button is pressed
+            print ('button pressed >>>') # print information on terminal
+        if GPIO.input(blueButton)==GPIO.LOW: # if button is pressed
             print ('button pressed >>>') # print information on terminal
     else : # if button is released
         print ('button released <<<')
