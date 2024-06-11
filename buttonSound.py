@@ -21,7 +21,7 @@ def loop():
     while True:
         if GPIO.input(redButton)==GPIO.LOW: # if button is pressed
             print ('Red Button: button pressed >>>') # print information on terminal
-            mixer.music.load('/sounds/English/red.m4a')
+            mixer.music.load('./sounds/English/red.m4a')
             mixer.music.play()
         if GPIO.input(yellowButton)==GPIO.LOW: # if button is pressed
             print ('Yellow Button: pressed >>>') # print information on terminal
