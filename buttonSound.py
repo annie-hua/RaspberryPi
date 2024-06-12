@@ -27,10 +27,10 @@ def loop():
             playSound(languageSoundMap[language]['red'])
         if GPIO.input(yellowButton)==GPIO.LOW: # if button is pressed
             print ('Yellow Button: pressed >>>') # print information on terminal
-            playSound(languageSoundMap[language]['yellowButton'])
+            playSound(languageSoundMap[language]['yellow'])
         if GPIO.input(blueButton)==GPIO.LOW: # if button is pressed
             print ('Blue Button: pressed >>>') # print information on terminal
-            playSound(languageSoundMap[language]['blueButton'])
+            playSound(languageSoundMap[language]['blue'])
 
     # else : # if button is released
     #     print ('button released <<<')
