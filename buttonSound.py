@@ -5,6 +5,8 @@ from languageSoundMap import languageSoundMap
 redButton = 22 
 yellowButton = 18 
 blueButton = 16
+greenButton = 32 #GPIO 12
+orangeButton = 36 #GPIO 16
 
 language = 'English'
 
@@ -23,14 +25,21 @@ def playSound(sound):
 def loop():
     while True:
         if GPIO.input(redButton)==GPIO.LOW: # if button is pressed
-            print ('Red Button: button pressed >>>') # print information on terminal
+            print ('Red Button: button pressed >>>')
             playSound(languageSoundMap[language]['red'])
         if GPIO.input(yellowButton)==GPIO.LOW: # if button is pressed
-            print ('Yellow Button: pressed >>>') # print information on terminal
+            print ('Yellow Button: pressed >>>')
             playSound(languageSoundMap[language]['yellow'])
         if GPIO.input(blueButton)==GPIO.LOW: # if button is pressed
-            print ('Blue Button: pressed >>>') # print information on terminal
+            print ('Blue Button: pressed >>>')
             playSound(languageSoundMap[language]['blue'])
+        if GPIO.input(greenButton)==GPIO.LOW: # if button is pressed
+            print ('Green Button: pressed >>>')
+            playSound(languageSoundMap[language]['green'])
+        if GPIO.input(orangeButton)==GPIO.LOW: # if button is pressed
+            print ('Orange Button: pressed >>>')
+            playSound(languageSoundMap[language]['orange'])
+    
 
     # else : # if button is released
     #     print ('button released <<<')
