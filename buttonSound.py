@@ -16,18 +16,21 @@ def setup():
     GPIO.setup(yellowButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
     GPIO.setup(blueButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
 
+def playSound(sound):
+    mixer.music.load(sound)
+    mixer.music.play()
+
 def loop():
     while True:
         if GPIO.input(redButton)==GPIO.LOW: # if button is pressed
             print ('Red Button: button pressed >>>') # print information on terminal
-            mixer.music.load(languageSoundMap.language['red'])
+            playSound(languageSoundMap.language['red'])
         if GPIO.input(yellowButton)==GPIO.LOW: # if button is pressed
             print ('Yellow Button: pressed >>>') # print information on terminal
-            mixer.music.load(languageSoundMap.language['yellowButton'])
+            playSound(languageSoundMap.language['yellowButton'])
         if GPIO.input(blueButton)==GPIO.LOW: # if button is pressed
             print ('Blue Button: pressed >>>') # print information on terminal
-            mixer.music.load(languageSoundMap.language['blueButton'])
-        mixer.music.play()
+            playSound(languageSoundMap.language['blueButton'])
 
     # else : # if button is released
     #     print ('button released <<<')
