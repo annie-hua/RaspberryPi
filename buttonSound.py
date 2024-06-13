@@ -24,7 +24,7 @@ class ButtonSound:
         mixer.music.load(sound)
         mixer.music.play()
 
-    def playSoundButton(self):
+    def loop(self):
         while True:
             if GPIO.input(self.redButton)==GPIO.LOW: # if button is pressed
                 print ('Red Button: button pressed >>>')
