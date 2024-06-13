@@ -17,8 +17,10 @@ if __name__ == '__main__':     # Program entrance
     ble_process = BLEProcess(output_queue)
     ble_process.start()
     try:
-        buttonSound.loop()
+        loop_process = multiprocessing.Process(target=buttonSound.loop)
+        loop_process.start()
         while True:
+            print("Waiting for value from BLE process...")
             try:
                 curr_value = output_queue.get(timeout=1)
                 print(f"Value written to Characteristic with UUID {curr_value['uuid']}: {curr_value['value']}")
