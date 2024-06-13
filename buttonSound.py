@@ -24,23 +24,22 @@ class ButtonSound:
         mixer.music.load(sound)
         mixer.music.play()
 
-    def loop(self):
-        while True:
-            if GPIO.input(self.redButton)==GPIO.LOW: # if button is pressed
-                print ('Red Button: button pressed >>>')
-                self.playSound(languageSoundMap[self.language]['red'])
-            if GPIO.input(self.yellowButton)==GPIO.LOW: # if button is pressed
-                print ('Yellow Button: pressed >>>')
-                self.playSound(languageSoundMap[self.language]['yellow'])
-            if GPIO.input(self.blueButton)==GPIO.LOW: # if button is pressed
-                print ('Blue Button: pressed >>>')
-                self.playSound(languageSoundMap[self.language]['blue'])
-            if GPIO.input(self.greenButton)==GPIO.LOW: # if button is pressed
-                print ('Green Button: pressed >>>')
-                self.playSound(languageSoundMap[self.language]['green'])
-            if GPIO.input(self.orangeButton)==GPIO.LOW: # if button is pressed
-                print ('Orange Button: pressed >>>')
-                self.playSound(languageSoundMap[self.language]['orange'])
+    def playSoundButton(self):
+        if GPIO.input(self.redButton)==GPIO.LOW: # if button is pressed
+            print ('Red Button: button pressed >>>')
+            self.playSound(languageSoundMap[self.language]['red'])
+        if GPIO.input(self.yellowButton)==GPIO.LOW: # if button is pressed
+            print ('Yellow Button: pressed >>>')
+            self.playSound(languageSoundMap[self.language]['yellow'])
+        if GPIO.input(self.blueButton)==GPIO.LOW: # if button is pressed
+            print ('Blue Button: pressed >>>')
+            self.playSound(languageSoundMap[self.language]['blue'])
+        if GPIO.input(self.greenButton)==GPIO.LOW: # if button is pressed
+            print ('Green Button: pressed >>>')
+            self.playSound(languageSoundMap[self.language]['green'])
+        if GPIO.input(self.orangeButton)==GPIO.LOW: # if button is pressed
+            print ('Orange Button: pressed >>>')
+            self.playSound(languageSoundMap[self.language]['orange'])
     
     def setLanguage(self, language):
         self.language = language
