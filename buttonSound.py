@@ -2,61 +2,48 @@ from pygame import mixer
 import RPi.GPIO as GPIO
 from languageSoundMap import languageSoundMap
 
-redButton = 22 
-yellowButton = 18 
-blueButton = 16
-greenButton = 32 #GPIO 12
-orangeButton = 36 #GPIO 16
+class ButtonSound:
+    def __init__(self):
+        self.redButton = 22 #GPIO 25 
+        self.yellowButton = 18 #GPIO 24
+        self.blueButton = 16 #GPIO 23
+        self.greenButton = 32 #GPIO 12
+        self.orangeButton = 36 #GPIO 16
+        self.language = 'English'
 
-language = 'English'
+    def setup(self):
+        mixer.init()
+        GPIO.setmode(GPIO.BOARD) # use PHYSICAL GPIO Numbering
+        GPIO.setup(self.redButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
+        GPIO.setup(self.yellowButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
+        GPIO.setup(self.blueButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
+        GPIO.setup(self.greenButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
+        GPIO.setup(self.orangeButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
 
-def setup():
-    mixer.init()
-    GPIO.setmode(GPIO.BOARD) # use PHYSICAL GPIO Numbering
-    # GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
-    GPIO.setup(redButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
-    GPIO.setup(yellowButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
-    GPIO.setup(blueButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
-    GPIO.setup(greenButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
-    GPIO.setup(orangeButton, GPIO.IN, pull_up_down=GPIO.PUD_UP) # set buttonPin to PULL UP INPUT>
+    def playSound(self, sound):
+        mixer.music.load(sound)
+        mixer.music.play()
 
-
-def playSound(sound):
-    mixer.music.load(sound)
-    mixer.music.play()
-
-def loop():
-    while True:
-        if GPIO.input(redButton)==GPIO.LOW: # if button is pressed
-            print ('Red Button: button pressed >>>')
-            playSound(languageSoundMap[language]['red'])
-        if GPIO.input(yellowButton)==GPIO.LOW: # if button is pressed
-            print ('Yellow Button: pressed >>>')
-            playSound(languageSoundMap[language]['yellow'])
-        if GPIO.input(blueButton)==GPIO.LOW: # if button is pressed
-            print ('Blue Button: pressed >>>')
-            playSound(languageSoundMap[language]['blue'])
-        if GPIO.input(greenButton)==GPIO.LOW: # if button is pressed
-            print ('Green Button: pressed >>>')
-            playSound(languageSoundMap[language]['green'])
-        if GPIO.input(orangeButton)==GPIO.LOW: # if button is pressed
-            print ('Orange Button: pressed >>>')
-            playSound(languageSoundMap[language]['orange'])
+    def loop(self):
+        while True:
+            if GPIO.input(self.redButton)==GPIO.LOW: # if button is pressed
+                print ('Red Button: button pressed >>>')
+                self.playSound(languageSoundMap[self.language]['red'])
+            if GPIO.input(self.yellowButton)==GPIO.LOW: # if button is pressed
+                print ('Yellow Button: pressed >>>')
+                self.playSound(languageSoundMap[self.language]['yellow'])
+            if GPIO.input(self.blueButton)==GPIO.LOW: # if button is pressed
+                print ('Blue Button: pressed >>>')
+                self.playSound(languageSoundMap[self.language]['blue'])
+            if GPIO.input(self.greenButton)==GPIO.LOW: # if button is pressed
+                print ('Green Button: pressed >>>')
+                self.playSound(languageSoundMap[self.language]['green'])
+            if GPIO.input(self.orangeButton)==GPIO.LOW: # if button is pressed
+                print ('Orange Button: pressed >>>')
+                self.playSound(languageSoundMap[self.language]['orange'])
     
+    def setLanguage(self, language):
+        self.language = language
 
-    # else : # if button is released
-    #     print ('button released <<<')
-def hello():
-    print('Hello')
-
-def destroy():
-    # GPIO.output(ledPin, GPIO.LOW)     # turn off led 
-    GPIO.cleanup()                    # Release GPIO resource
-
-if __name__ == '__main__':     # Program entrance
-    print ('Program is starting...')
-    setup()
-    try:
-        loop()
-    except KeyboardInterrupt:  # Press ctrl-c to end the program.
-        destroy()
+    def destroy(self):
+        GPIO.cleanup() # Release GPIO resource
