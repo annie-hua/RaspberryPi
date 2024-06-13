@@ -18,9 +18,10 @@ if __name__ == '__main__':     # Program entrance
     ble_process = BLEProcess(output_queue)
     ble_process.start()
     try:
+        loop_thread = threading.Thread(target=buttonSound.loop)
+        loop_thread.start()
         while True:
             try:
-                buttonSound.playSoundButton()
                 curr_value = output_queue.get(timeout=1)
                 print(f"Value written to Characteristic with UUID {curr_value['uuid']}: {curr_value['value']}")
                 newLangage = curr_value['value']
