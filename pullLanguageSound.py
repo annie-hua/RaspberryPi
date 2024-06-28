@@ -57,6 +57,6 @@ def download_audio_files(bucket_name, folder_path):
 # Example usage
 for language in languagesToTranslate:
     bucket_name = 'babbel-blocks'
-    folder_path = f'audio/{language}/{category}/'
+    folder_path = f'master/audio/{language}/{category}/'
     download_audio_files(bucket_name, folder_path)
 print('Done downloading audio files.')
