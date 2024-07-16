@@ -37,8 +37,8 @@ def readLine(line, characters):
         print(characters[1])
     if(GPIO.input(C3) == 1):
         print(characters[2])
-    if(GPIO.input(C4) == 1):
-        print(characters[3])
+    # if(GPIO.input(C4) == 1):
+    #     print(characters[3])
     GPIO.output(line, GPIO.LOW)
 
 try:
