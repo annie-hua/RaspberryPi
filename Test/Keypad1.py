@@ -6,15 +6,15 @@ import time
 # keypadRowPins = [13,12,11,10]
 # keypadColPins = [14,15,16,17,18]
 
-L1 = 13
-L2 = 12
-L3 = 11
-L4 = 10
+L1 = 7 #4
+L2 = 11 #17
+L3 = 13 #27
+L4 = 14 #22
 
-C1 = 14
-C2 = 15
-C3 = 16
-C4 = 17
+C1 = 12 #18
+C2 = 16 #23
+C3 = 22 #25
+C4 = 32 #12
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
