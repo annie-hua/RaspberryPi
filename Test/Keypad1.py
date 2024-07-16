@@ -7,16 +7,17 @@ import RPi.GPIO as GPIO
 import time
 
 # These are the GPIO pin numbers where the
-L1 = 7 #4
-L2 = 11 #17
-L3 = 13 #27
-L4 = 14 #22
 
-C1 = 12 #18
-C2 = 16 #23
-C3 = 22 #25
-C4 = 32 #12
+L1 = 12 #18
+L2 = 16 #23
+L3 = 22 #25
+L4 = 32 #12
 
+
+C1 = 7 #4
+C2 = 11 #17
+C3 = 13 #27
+C4 = 14 #22
 
 # The GPIO pin of the column of the key that is currently
 # being held down or -1 if no key is pressed
@@ -70,7 +71,7 @@ def checkSpecialKeys():
     GPIO.output(L3, GPIO.HIGH)
 
     if (GPIO.input(C4) == 1):
-        print("Input reset!");
+        print("Input reset!")
         pressed = True
 
     GPIO.output(L3, GPIO.LOW)
