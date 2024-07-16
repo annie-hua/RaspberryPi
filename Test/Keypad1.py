@@ -15,8 +15,9 @@ KEYPAD = [
 ]
 
 # Define GPIO pins for rows and columns
-ROWS = [12, 16, 22, 32]
-COLS = [7, 11, 13, 14]
+
+COLS = [4, 17, 27, 22]
+ROWS = [5, 6, 13, 19]
 
 # Initialize GPIO
 GPIO.setmode(GPIO.BCM)
