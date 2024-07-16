@@ -3,16 +3,18 @@
 
 import RPi.GPIO as GPIO
 import time
+# keypadRowPins = [13,12,11,10]
+# keypadColPins = [14,15,16,17,18]
 
-L1 = 5
-L2 = 6
-L3 = 13
-L4 = 19
+L1 = 13
+L2 = 12
+L3 = 11
+L4 = 10
 
-C1 = 12
-C2 = 16
-C3 = 20
-C4 = 21
+C1 = 14
+C2 = 15
+C3 = 16
+C4 = 17
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
