@@ -6,7 +6,8 @@ import time
 import dbus
 
 from demo.ble_process import BLEProcess
-from buttonSound import ButtonSound
+# from buttonSound import ButtonSound
+from Test.Keypad1 import ButtonSound
 
 dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
