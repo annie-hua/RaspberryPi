@@ -24,7 +24,7 @@ class ButtonSound:
         self.ROWS = [5, 6, 13, 19]
         self.level = 1
         self.language = 'English'
-        
+
     def setup(self):
         mixer.init()
         # Initialize GPIO
@@ -71,8 +71,10 @@ class ButtonSound:
     def getSound(self, keyPressed):
 
         if self.level == 1:
+            print(languageSoundMapButtons14[self.language]['level_1'][keyPressed])
             return languageSoundMapButtons14[self.language]['level_1'][keyPressed]
         else:
+            print(languageSoundMapButtons14[self.language]['level_2'][keyPressed])
             return languageSoundMapButtons14[self.language]['level_2'][keyPressed]
         
     def loop(self):
