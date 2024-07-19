@@ -39,8 +39,8 @@ class ButtonSound:
             GPIO.setup(col_pin, GPIO.OUT)
             GPIO.output(col_pin, GPIO.HIGH)
         
-        
-
+    def setLanguage(self, language):
+        self.language = language
 
 
 
