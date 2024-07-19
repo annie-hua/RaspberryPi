@@ -27,7 +27,7 @@ languagesToTranslate = [
     'Cantonese'
 ]
 
-category = 'color'
+categories = ['color', 'number', 'introduction', 'heart', 'level', 'songs']
 
 
 s3_client = boto3.client('s3', aws_access_key_id=ACCESS_KEY, aws_secret_access_key=SECRET_KEY)
@@ -57,6 +57,7 @@ def download_audio_files(bucket_name, folder_path):
 # Example usage
 for language in languagesToTranslate:
     bucket_name = 'babbel-blocks'
-    folder_path = f'master/audio/{language}/{category}/'
-    download_audio_files(bucket_name, folder_path)
+    for category in categories:
+        folder_path = f'master/audio/{language}/{category}/'
+        download_audio_files(bucket_name, folder_path)
 print('Done downloading audio files.')
