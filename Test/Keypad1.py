@@ -22,7 +22,11 @@ class ButtonSound:
 
         self.COLS = [4, 17, 27, 22]
         self.ROWS = [5, 6, 13, 19]
-
+        self.level = 1
+        self.language = 'English'
+        
+    def setup(self):
+        mixer.init()
         # Initialize GPIO
         GPIO.setmode(GPIO.BCM)
 
@@ -35,8 +39,7 @@ class ButtonSound:
             GPIO.setup(col_pin, GPIO.OUT)
             GPIO.output(col_pin, GPIO.HIGH)
         
-        self.level = 1
-        self.language = 'English'
+        
 
 
 
