@@ -88,7 +88,7 @@ class ButtonSound:
                             self.level = 2
                         else:
                             self.level = 1
-                    self.getSound(pressed_key)
+                    self.playSound(self.getSound(pressed_key))
                     print(f"Pressed: {pressed_key}")
                 time.sleep(0.1)
 
