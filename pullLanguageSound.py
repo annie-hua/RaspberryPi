@@ -43,16 +43,22 @@ def download_audio_files(bucket_name, folder_path):
     # List all objects within the specified folder in S3
     response = s3_client.list_objects_v2(Bucket=bucket_name, Prefix=folder_path)
     print(response)
+    contentNotDownloaded = []
     
     if 'Contents' in response:
         for item in response['Contents']:
-            file_name = item['Key']
-            # Use adjusted_folder_path for local file path
-            local_file_path = os.path.join(adjusted_folder_path, os.path.basename(file_name))
-            
-            # Download each file
-            s3_client.download_file(bucket_name, file_name, local_file_path)
-            print(f"Downloaded {file_name} to {local_file_path}")
+            try:
+                file_name = item['Key']
+                # Use adjusted_folder_path for local file path
+                local_file_path = os.path.join(adjusted_folder_path, os.path.basename(file_name))
+                
+                # Download each file
+                s3_client.download_file(bucket_name, file_name, local_file_path)
+                print(f"Downloaded {file_name} to {local_file_path}")
+            except:
+                contentNotDownloaded.append(file_name)
+                print(f"Error downloading {file_name}")
+    print(contentNotDownloaded)
 
 # Example usage
 for language in languagesToTranslate:
